@@ -29,7 +29,7 @@ app.use("/api/v1",newsRoute);
 app.use("/api/v1",apiRoute);
 
 app.get("/",(req,res)=>{
-  res.send("Working fine");
+  res.send("Backend Hosted Successfully");
 });
 
 app.listen(3000,()=>{
