@@ -21,10 +21,6 @@ app.use(cors({
   credentials:true,
 }));
 
-app.use(cors({
-  origin:allowedOrigins,
-  credentials:true,
-}));
 
 main().catch(err => console.log(err));
 
