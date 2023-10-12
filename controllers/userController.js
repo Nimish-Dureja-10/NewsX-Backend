@@ -99,22 +99,12 @@ export const loginUser = async (req,res) => {
     }
 };
 
-<<<<<<< HEAD
 export const getUserProfile = async (req,res) => {
     try {
         const userId = await userModel.findById(req.user._id);
         res.status(200).json({
             success:true,
             userId,
-=======
-
-export const getUserProfile = async (req,res) => {
-    try {
-        const user = await userModel.findById(req.user._id);
-        res.status(200).json({
-            success:true,
-            user,
->>>>>>> origin/main
         });
     } catch (error) {
         res.status(500).json({
@@ -123,8 +113,4 @@ export const getUserProfile = async (req,res) => {
             error,
         });
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> origin/main
