@@ -15,21 +15,17 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:5173'
 ];
-<<<<<<< HEAD
-
-app.use(cors({
-  origin:allowedOrigins,
-  credentials:true,
-}));
-=======
 
 app.use(cors({
   origin:allowedOrigins,
   credentials:true,
 }));
 
+app.use(cors({
+  origin:allowedOrigins,
+  credentials:true,
+}));
 
->>>>>>> origin/main
 main().catch(err => console.log(err));
 
 async function main() {
