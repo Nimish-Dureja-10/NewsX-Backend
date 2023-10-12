@@ -15,11 +15,21 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:5173'
 ];
+<<<<<<< HEAD
 
 app.use(cors({
   origin:allowedOrigins,
   credentials:true,
 }));
+=======
+
+app.use(cors({
+  origin:allowedOrigins,
+  credentials:true,
+}));
+
+
+>>>>>>> origin/main
 main().catch(err => console.log(err));
 
 async function main() {
@@ -34,7 +44,7 @@ app.use("/api/v1",newsRoute);
 app.use("/api/v1",apiRoute);
 
 app.get("/",(req,res)=>{
-  res.send("Working fine");
+  res.send("Backend Hosted Successfully");
 });
 
 app.listen(3000,()=>{
