@@ -11,10 +11,15 @@ dotenv.config({
     path:"./config/config.env",
 });
 
-app.use(cors({
-  origin:"http://127.0.0.1:5173/",
-}));
+const allowedOrigins = [
+  'http://127.0.0.1:5173',
+  'http://localhost:5173'
+];
 
+app.use(cors({
+  origin:allowedOrigins,
+  credentials:true,
+}));
 main().catch(err => console.log(err));
 
 async function main() {
