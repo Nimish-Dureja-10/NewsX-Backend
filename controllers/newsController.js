@@ -1,15 +1,21 @@
 import newsModel from "../models/newsModel.js";
 import userModel from "../models/userModel.js";
+import fs from 'fs';
 
 export const createNewsPost = async (req,res) => {
     try {
         //photo to be added
-        const {title,description,category,source} = req.body;
+        const {title,description,category,source} = req.fields;
+        const {photo} = req.files;
         if(!title || !description || !category) {
             return res.status(400).json({
                 success: false,
                 message : "Please provide complete details",
             });
+        }
+        if(photo){
+            products.photo.data = fs.readFileSync(photo.path);
+            products.photo.contentType = photo.type;
         }
         const userId = await userModel.findById(req.user._id);
         const news = await newsModel.create({title,description,category,source,user:userId});
