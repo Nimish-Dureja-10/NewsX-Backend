@@ -1,6 +1,5 @@
 import newsModel from "../models/newsModel.js";
 import userModel from "../models/userModel.js";
-import fs from 'fs';
 
 export const createNewsPost = async (req,res) => {
     try {
@@ -60,6 +59,23 @@ export const getUserNews = async (req,res) => {
         res.status(404).json({
             succes:false,
             message :"Failed to fetch your news",
+            error
+        });
+    }
+};
+
+export const getNewsDetails = async (req,res) => {
+    try{
+        const {id} = req.params;
+        const newsDetails = await newsModel.findById(id);
+        res.status(200).json({
+            success:true,
+            newsDetails
+        });
+    }catch(error) {
+        res.status(500).json({
+            success:false,
+            message : "Failed to fetch news details",
             error
         });
     }

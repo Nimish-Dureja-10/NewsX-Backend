@@ -1,5 +1,5 @@
 import express from 'express';
-import { createNewsPost, getAllNews, getUserNews } from '../controllers/newsController.js';
+import { createNewsPost, getAllNews, getNewsDetails, getUserNews } from '../controllers/newsController.js';
 import { likeController, postComment, reportController } from '../controllers/postController.js';
 import { requireSignIn } from '../middleware/authMiddleware.js';
 
@@ -11,5 +11,6 @@ router.get("/userpostednews",requireSignIn,getUserNews);
 router.post("/newsbyuser/:id",requireSignIn,postComment);
 router.get("/reportpost/:id",requireSignIn,reportController);
 router.get("/likepost/:id",requireSignIn,likeController);
+router.get("/newsdetails/:id",getNewsDetails);
 
 export default router;
