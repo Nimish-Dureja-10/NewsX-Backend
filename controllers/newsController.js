@@ -13,13 +13,13 @@ export const createNewsPost = async (req,res) => {
                 message : "Please provide complete details",
             });
         }
-        if(photo){
-            products.photo.data = fs.readFileSync(photo.path);
-            products.photo.contentType = photo.type;
-        }
         const userId = await userModel.findById(req.user._id);
-        const news = await newsModel.create({title,description,category,source,user:userId,photo});
+        const news = await newsModel.create({title,description,category,source,user:userId});
         // const addInUser = await userModel.findByIdAndUpdate(req.user._id,{post:[...userId.post,news._id]},{new : true});
+        if(photo){
+            news.photo.data = fs.readFileSync(photo.path);
+            news.photo.contentType = photo.type;
+        }
         const addInUser = await userModel.findByIdAndUpdate(
             req.user._id,
             { $push: { post: news._id } }, // Use $push to add news._id to the 'post' array
