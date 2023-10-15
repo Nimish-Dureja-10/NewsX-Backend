@@ -18,7 +18,7 @@ export const createNewsPost = async (req,res) => {
             products.photo.contentType = photo.type;
         }
         const userId = await userModel.findById(req.user._id);
-        const news = await newsModel.create({title,description,category,source,user:userId,photo:photo});
+        const news = await newsModel.create({title,description,category,source,user:userId,photo});
         // const addInUser = await userModel.findByIdAndUpdate(req.user._id,{post:[...userId.post,news._id]},{new : true});
         const addInUser = await userModel.findByIdAndUpdate(
             req.user._id,
