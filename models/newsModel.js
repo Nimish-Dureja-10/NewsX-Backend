@@ -15,7 +15,7 @@ const schema = mongoose.Schema({
     },
     photo : {
         data: Buffer,
-        contentTpye : String,
+        contentType : String,
     },
     source : {
         type : String
