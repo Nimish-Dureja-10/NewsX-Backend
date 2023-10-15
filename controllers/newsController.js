@@ -35,7 +35,7 @@ export const createNewsPost = async (req,res) => {
 
 export const getAllNews = async (req,res) => {
     try {
-        const news = await newsModel.find({});
+        const news = await newsModel.find({}).sort({createdAt:-1});
         res.status(200).json({
             success:true,
             news
