@@ -43,7 +43,8 @@ export const reportController = async (req,res) => {
         res.status(200).json({
             success:true,
             addReporterEmail,
-            updatedPost
+            updatedPost,
+            message: "You Reported This Post"
         })
     } catch (error) {
         res.status(400).json({
