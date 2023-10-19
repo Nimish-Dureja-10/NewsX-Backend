@@ -14,7 +14,7 @@ dotenv.config({
 const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:5173',
-  'https://news-x-frontend.vercel.app',
+  'https://news-x-frontend.vercel.app/',
   'https://news-x-frontend-itspriyanshuhere.vercel.app',
   'https://news-x-frontend-git-main-itspriyanshuhere.vercel.app'
 ];
